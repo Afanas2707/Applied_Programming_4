@@ -22,7 +22,7 @@ def hello(message):
 @bot.message_handler(content_types=['text'])
 def get_text_messages(message):
     if message.text == 'Получить фото':
-        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)  # создание новых кнопок
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
         btn1 = types.KeyboardButton('Получить фото')
         markup.add(btn1)
         image_url = None
@@ -33,7 +33,7 @@ def get_text_messages(message):
                 image_url = get_mars_photo_url()
         bot.send_photo(message.chat.id, image_url, reply_markup=markup)
     else:
-        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)  # создание новых кнопок
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
         btn1 = types.KeyboardButton('Получить фото')
         markup.add(btn1)
         bot.send_message(message.from_user.id, 'Вы должны ввести "Получить фото" или /start',
